@@ -1,0 +1,76 @@
+extends layout
+
+block main
+    div#heading
+        h1 Smartcontract and Web Widget Generation Page
+    div#content
+        div.form-control
+            label.checkbox-inline
+                input.flag(type="checkbox" id="limitAuthorsCheck" onchange="page.limitAuthors(this);")
+                | Limit authors
+            label.checkbox-inline
+                input.flag(type="checkbox" id="limitReviewersCheck" onchange="page.limitReviewers(this);")
+                | Limit reviewers
+            label.checkbox-inline
+                input.flag(type="checkbox" id="limitViewersCheck" onchange="page.limitViewers(this);")
+                | Limit viewers
+            label.checkbox-inline
+                input.flag(type="checkbox" id="selectedReviewingCheck", onchange="page.selectedReviewing(this);")
+                | Selected Reviewing
+            label.checkbox-inline
+                input.flag(type="checkbox" id="payableCheck" onchange="page.payable(this)")
+                | Payable
+        div#parameters
+            h3 Assessment parameters:
+            button(
+            class="btn btn-default btn-add"
+            onclick="page.addContractParameter()"
+            ) +
+            div(id="reviewingParams")
+        div(id='limitAuthors' hidden)
+            h3 Authors with access:
+            button(
+            class="btn btn-default btn-add"
+            onclick="page.addAuthorAccess()"
+            ) +
+            div(id="restrictedAuthors")
+        div(id='limitReviewers' hidden)
+            h3 Reviewers with access:
+            button(
+            class="btn btn-default btn-add"
+            onclick="page.addReviewerAccess()"
+            ) +
+            div(id="restrictedReviewers")
+        div(id='limitViewers' hidden)
+            h3 Viewers with access:
+            button(
+            class="btn btn-default btn-add"
+            onclick="page.addViewerAccess()"
+            ) +
+            div(id="restrictedViewers")
+        div(id="payable" hidden)
+            h3 Reward
+            |Rewarding sum: &nbsp
+            input(type="number" value="0" min="0" id="payableSum")
+            |  wei
+        button(
+        id="generateSmartcontract"
+        class="btn btn-primary"
+        onclick="page.generateSmartcontract()"
+        ) Generate smartcontract
+        //button(class="btn btn-danger" id="editButton" onclick="page.advancedClick();") Edit smartcontract
+        pre(id="smartContractSource") Smartcontract code
+        br
+        p#transactionHash(hidden) Transaction hash:
+        p#contractAddress(hidden) Smartcontract address:
+        button(
+        id="deploySmartcontract"
+        class="btn btn-primary"
+        hidden
+        onclick="page.deploySmartcontract();"
+        style="display:none"
+        ) Deploy smartcontract
+        br
+        button(id="generateWebWidget" class="btn btn-primary" onclick="page.generateWebWidget()" style="display:none") Generate Web Widget
+        div(id="webWidgetSources" hidden)
+        div.modal

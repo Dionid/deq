@@ -1,0 +1,11 @@
+{
+  "name": "deq",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./www"
+  },
+  "dependencies": {
+    "express": "~4.14.1"
+  }
+}
