@@ -32,9 +32,17 @@ function update() {
 
         for (let i = 0; i < reviews.length; i++) {
             const review = reviews[i];
+            const reviewContainerNode = document.createElement('div');
+            reviewContainerNode.setAttribute('class', 'rvw');
             const reviewNode = document.createElement('p');
-            reviewNode.innerHTML = review;
-            reviewsDiv.appendChild(reviewNode);
+            const likeNode = document.createElement('like');
+            likeNode.innerHTML = `👍 ${review[2]}`;
+            likeNode.setAttribute('onclick', `upvote(${i});`)
+            reviewNode.innerHTML = `${review[3]}: ${review[1]}`;
+            
+            reviewContainerNode.appendChild(reviewNode);
+            reviewContainerNode.appendChild(likeNode);
+            reviewsDiv.appendChild(reviewContainerNode);
         }
     });
 }
@@ -90,4 +98,9 @@ function sendReview() {
     const review = document.getElementById('reviewInput').value;
     const key = document.getElementById('keyInput').value;
     contract.SendReview("Milk#2384AD", review, key, alert);
+}
+
+function upvote(id) {
+    const key = document.getElementById('keyInput').value;
+    contract.VoteForReview("Milk#2384AD", id, key);
 }

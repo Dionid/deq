@@ -2,3 +2,22 @@ input {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+.rvw {
+    padding: 10px;
+    border-radius: 2px;
+
+    margin: 20px;
+    margin-left: 5px
+}
+
+.rvw like {
+    color: black;
+    margin-top: 3px;
+    float: right;
+    cursor: default;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}

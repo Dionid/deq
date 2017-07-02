@@ -9,22 +9,36 @@
 <script src="scripts/frontend.js"></script>
 
 <div class="container">
-<h1>Product *</h1>
+
 <table>
   <tr>
+  <th>
+      <iframe id="widget-ticker-preview" src="//www.coingecko.com/en/widget_component/ticker/decred/usd" style="border:none; height:125px; width: 275px;" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+  </th>
+  </tr>
+  <tr>
+    <th>
+      <iframe id="widget-ticker-preview" src="//www.coingecko.com/en/widget_component/ticker/deutsche-emark/usd" style="border:none; height:125px; width: 275px;" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+  </th>
+  </tr>
+  <tr>
+      <th>
+            <iframe id="widget-ticker-preview" src="//www.coingecko.com/en/widget_component/ticker/waves/usd" style="border:none; height:125px; width: 275px;" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+      </th>
   </tr>
 </table>
 
 <h2>Reviews</h2>
 <div id="reviews"></div>
-
 <input type="text" id="reviewInput" class="form-control" placeholder="Review">
 <input type="text" id="keyInput" class="form-control" placeholder="Key">
 <button class="btn btn-primary" onclick="sendReview();">Send</button>
 <br>
 <br>
 <button class="btn btn-primary" onclick="update();">Update</button>
-</div>
 
+<h2>Product description</h2>
+<p>Blbablblblblblbbalblablablabla</p>
+</div>
 </body>
 </html>
